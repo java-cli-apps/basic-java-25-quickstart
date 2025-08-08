@@ -1,32 +1,30 @@
-import net.fellbaum.jemoji.Emoji;
-import net.fellbaum.jemoji.EmojiManager;
+import module java.base;
 
-import java.util.Optional;
+enum Language {
 
-public enum Language {
-    French("Bonjour", "fr"),
-    English("Hello", "gb");
+    French("Bonjour", new int[]{0x1F1EB, 0x1F1F7}),
+    English("Hello", new int[]{0x1F1EC, 0x1F1E7});
 
     private final String message;
-    private final String alias;
+    private final int[] emoji;
 
-    Language(String message, String alias) {
+    Language(String message, int[] emoji) {
         this.message = message;
-        this.alias = alias;
+        this.emoji = emoji;
     }
 
-    public String getGreeting() {
-        Optional<Emoji> optionalEmoji = EmojiManager.getByAlias(alias);
-        String flag = optionalEmoji.map(Emoji::getEmoji).orElse("");
-        return message + " " + flag;
+    String getGreeting() {
+        return "%s %s%s".formatted(message, Character.toString(emoji[0]), Character.toString(emoji[1]));
     }
 
-    public static Language fromString(String language) {
-        return switch (language) {
-            case String s when s.equals(French.name()) -> French;
-            case String s when s.equals(English.name()) -> English;
-            default ->
-                    throw new IllegalArgumentException("No response or unknown language provided.");
-        };
+    static Optional<Language> fromString(String language) {
+        return Arrays.stream(values())
+                .filter(current_language -> current_language.name().equalsIgnoreCase(language))
+                .findFirst();
+    }
+
+    static void validate(String language) {
+        fromString(language)
+                .orElseThrow(() -> new IllegalArgumentException("Unknown language provided: %s".formatted(language)));
     }
 }

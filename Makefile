@@ -20,10 +20,10 @@ clean: ## Nettoyer le répertoire de construction
 	rm --force --recursive $(BUILD)
 
 run-app: ## Lancer l'application localement
-	./bin/$(STARTER_APP).sh
+	./bin/$(STARTER_APP).sh --language French
 
 run-app-from-java: ## Lancer l'application localement (en lançant le fichier .java)
-	./src/$(STARTER_APP).java
+	./src/$(STARTER_APP).java --language French
 
 run-installed-app: .check-install-dir ## Lancer l'application installée
 	PATH=$(DEST_DIR)/$(APP_DIR)/bin:$(PATH) $(APP_NAME).sh
