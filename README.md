@@ -31,10 +31,9 @@ de la ligne de commande et en effectuer le parsing.
 
 ## Créer une application depuis ce template
 
-Pour créer une application depuis ce template, on procédera de la même façon que pour le template
-[basic-java-23-quickstart](https://github.com/java-cli-apps/basic-java-23-quickstart) :
+Pour créer une application depuis ce template, on procédera comme suit :
 
-<a href="https://asciinema.org/a/669372" target="_blank"><img src="https://asciinema.org/a/669372.svg" /></a>
+<a href="https://asciinema.org/a/732396" target="_blank"><img src="https://asciinema.org/a/732396.svg" /></a>
 
 ## Construire votre application
 
