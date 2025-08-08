@@ -5,10 +5,11 @@ utiliser aucun système de build (autre que `make`).
 
 Ce template nécessite d'utiliser Java 25 ou une version supérieure car il utilise les JEPs suivantes :
 
-* La [JEP 458](https://openjdk.org/jeps/458) qui permet de lancer un programme Java dont le code est réparti dans
-  plusieurs fichiers sources sans avoir besoin de les compiler préalablement
-* La [JEP 511](https://openjdk.org/jeps/511) qui permet d'importer tous les packages exportés par un module java
-* La [JEP 512](https://openjdk.org/jeps/512) qui permet de :
+* La [JEP 458: Launch Multi-File Source-Code Programs](https://openjdk.org/jeps/458) qui permet de lancer un programme
+  Java dont le code est réparti dans plusieurs fichiers sources sans avoir besoin de les compiler préalablement
+* La [JEP 511: Module Import Declarations](https://openjdk.org/jeps/511) qui permet d'importer tous les packages
+  exportés par un module java
+* La [JEP 512: Compact Source Files and Instance Main Methods](https://openjdk.org/jeps/512) qui permet de :
   * Se passer de déclaration de classe
   * Simplifier la déclaration de la méthode `main`
   * Utiliser les méthodes `println` et `readln` de la classe `java.lang.IO`
@@ -17,9 +18,20 @@ Le template utilise la librairie [record-args](https://github.com/nipafx/record-
 [Nicolai Parlog](https://nipafx.dev), et qui utilise les `record` et les interfaces `sealed` pour définir les arguments
 de la ligne de commande et en effectuer le parsing.
 
-## Créer un dépôt depuis ce template
+* [Créer une application depuis ce template](#créer-une-application-depuis-ce-template)
+* [Construire votre application](#construire-votre-application)
+  * [Changer le nom de l'application](#changer-le-nom-de-lapplication)
+  * [Lancer l'application localement](#lancer-lapplication-localement)
+  * [Afficher l'aide de l'application](#afficher-laide-de-lapplication)
+  * [Construire le livrable de l'application](#construire-le-livrable-de-lapplication)
+* [Installer l'application](#installer-lapplication)
+  * [Shell de lancement](#shell-de-lancement)
+  * [Lancer l'application installée](#lancer-lapplication-installée)
+* [Autres templates](#autres-templates)
 
-Pour créer un dépôt depuis ce template, on procédera de la même façon que pour le template
+## Créer une application depuis ce template
+
+Pour créer une application depuis ce template, on procédera de la même façon que pour le template
 [basic-java-23-quickstart](https://github.com/java-cli-apps/basic-java-23-quickstart) :
 
 <a href="https://asciinema.org/a/669372" target="_blank"><img src="https://asciinema.org/a/669372.svg" /></a>
@@ -78,14 +90,7 @@ cd build \
 	&& zip --quiet --recurse-paths MyCmdLine.zip MyCmdLine
 ```
 
-#### Shell de lancement
-
-Le script de lancement [Application.sh](bin/Application.sh), dont le rôle est de lancer le fichier
-[Application.java](src/Application.java), est renommé lors de la construction du livrable en `MyCmdLine.sh`.
-
-Cela permet d'ajouter plusieurs applications dans le `PATH` et donc d'invoquer directement `MyCmdLine.sh`.
-
-### Installer l'application
+## Installer l'application
 
 ```bash
 $ DEST_DIR=/home/user make install
@@ -94,6 +99,13 @@ $ DEST_DIR=/home/user make install
 ```console
 unzip -q -d /home/user build/MyCmdLine.zip
 ```
+
+### Shell de lancement
+
+Le script de lancement [Application.sh](bin/Application.sh), dont le rôle est de lancer le fichier
+[Application.java](src/Application.java), est renommé lors de la construction du livrable en `MyCmdLine.sh`.
+
+Cela permet d'ajouter plusieurs applications dans le `PATH` et donc d'invoquer directement `MyCmdLine.sh`.
 
 ### Lancer l'application installée
 
