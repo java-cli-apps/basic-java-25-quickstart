@@ -13,6 +13,10 @@ Ce template nécessite d'utiliser Java 25 ou une version supérieure car il util
   * Simplifier la déclaration de la méthode `main`
   * Utiliser les méthodes `println` et `readln` de la classe `java.lang.IO`
 
+Le template utilise la librairie [record-args](https://github.com/nipafx/record-args), développée par
+[Nicolai Parlog](https://nipafx.dev), et qui utilise les `record` et les interfaces `sealed` pour définir les arguments
+de la ligne de commande et en effectuer le parsing.
+
 ## Créer un dépôt depuis ce template
 
 Pour créer un dépôt depuis ce template, on procédera de la même façon que pour le template
@@ -43,6 +47,17 @@ $ make run-app
 ```console
 ./bin/Application.sh --language French
 Bonjour 🇫🇷
+```
+
+### Afficher l'aide de l'application
+
+```bash
+$ make run-app-help
+```
+
+```console
+./bin/Application.sh --help
+Usage: Application [--language French | English] [--help]
 ```
 
 ### Construire le livrable de l'application

@@ -22,6 +22,9 @@ clean: ## Nettoyer le répertoire de construction
 run-app: ## Lancer l'application localement
 	./bin/$(STARTER_APP).sh --language French
 
+run-app-help: ## Afficher l'aide de l'application
+	./bin/$(STARTER_APP).sh --help
+
 run-app-from-java: ## Lancer l'application localement (en lançant le fichier .java)
 	./src/$(STARTER_APP).java --language French
 
