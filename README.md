@@ -123,12 +123,11 @@ Il ne nous reste plus qu'à :
 - Implémenter notre métier dans [Application.java](src/Application.java)
 - Ajouter les fichiers qui déclarent les classes utilisées par `Application.java` dans le répertoire [src](src)
 - Ajouter les jars de nos dépendances dans le répertoire [lib](lib)
-- Implémenter des tests unitaires
+- Implémenter des tests
 
 ## Exécuter les tests
 
-💡 Avec la JEP 458, il est également possible d'implémenter des tests unitaires, que l'on lancera en ligne de commande
-comme le code de l'application.
+💡 Avec la JEP 458, il est également possible d'implémenter des tests, que l'on lancera en ligne de commande comme c'est déjà le cas pour l'application.
 
 La classe [LanguageTest](src/LanguageTest.java) qui utilise la classe [TestRunner](src/TestRunner.java) et les
 assertions Java montre comment procéder :
@@ -163,7 +162,7 @@ java.lang.AssertionError: Test was expected to fail !
 Ces tests peuvent aussi être exécutés depuis l'environnement de développement en lançant la méthode `main` de la classe
 de test.
 
-⚠ On ne peut pas lancer un test unitairement : il faut lancer tous les tests à la fois.
+⚠ On ne peut pas lancer un test seul : il faut lancer tous les tests à la fois.
 
 ## Autres templates
 
