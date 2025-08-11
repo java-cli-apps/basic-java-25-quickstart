@@ -31,6 +31,9 @@ run-app-from-java: ## Lancer l'application localement (en lançant le fichier .j
 run-installed-app: .check-install-dir ## Lancer l'application installée
 	PATH=$(DEST_DIR)/$(APP_DIR)/bin:$(PATH) $(APP_NAME).sh
 
+test: ## Exécuter les tests
+	./src/LanguageTest.java
+
 .check-install-dir:
 ifndef DEST_DIR
 	$(error Please set the installation directory, for example DEST_DIR=~ make install)

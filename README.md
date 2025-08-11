@@ -15,8 +15,8 @@ Ce template nécessite d'utiliser Java 25 ou une version supérieure car il util
   * Utiliser les méthodes `println` et `readln` de la classe `java.lang.IO`
 
 Le template utilise la librairie [record-args](https://github.com/nipafx/record-args), développée par
-[Nicolai Parlog](https://nipafx.dev), et qui utilise les `record` et les interfaces `sealed` pour définir les arguments
-de la ligne de commande et en effectuer le parsing.
+[Nicolai Parlog](https://nipafx.dev), et qui s'appuie sur les `record` et les interfaces `sealed` pour définir les
+arguments de la ligne de commande et en effectuer le parsing.
 
 * [Créer une application depuis ce template](#créer-une-application-depuis-ce-template)
 * [Construire votre application](#construire-votre-application)
@@ -27,6 +27,7 @@ de la ligne de commande et en effectuer le parsing.
 * [Installer l'application](#installer-lapplication)
   * [Shell de lancement](#shell-de-lancement)
   * [Lancer l'application installée](#lancer-lapplication-installée)
+* 🆕 [Exécuter les tests](#exécuter-les-tests)
 * [Autres templates](#autres-templates)
 
 ## Créer une application depuis ce template
@@ -122,6 +123,47 @@ Il ne nous reste plus qu'à :
 - Implémenter notre métier dans [Application.java](src/Application.java)
 - Ajouter les fichiers qui déclarent les classes utilisées par `Application.java` dans le répertoire [src](src)
 - Ajouter les jars de nos dépendances dans le répertoire [lib](lib)
+- Implémenter des tests unitaires
+
+## Exécuter les tests
+
+💡 Avec la JEP 458, il est également possible d'implémenter des tests unitaires, que l'on lancera en ligne de commande
+comme le code de l'application.
+
+La classe [LanguageTest](src/LanguageTest.java) qui utilise la classe [TestRunner](src/TestRunner.java) et les
+assertions Java montre comment procéder :
+
+```bash
+$ make test
+```
+
+```console
+./src/LanguageTest.java
+✅ Test fromStringTest is successful
+❌ Test failingTest has failed
+java.lang.AssertionError: Test was expected to fail !
+	at LanguageTest.failingTest(LanguageTest.java:13)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at TestRunner.runTest(TestRunner.java:21)
+	at TestRunner.lambda$runTests$0(TestRunner.java:12)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:803)
+	at TestRunner.runTests(TestRunner.java:12)
+	at TestRunner.runTests(TestRunner.java:6)
+	at LanguageTest.main(LanguageTest.java:4)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at jdk.compiler/com.sun.tools.javac.launcher.SourceLauncher.execute(SourceLauncher.java:256)
+	at jdk.compiler/com.sun.tools.javac.launcher.SourceLauncher.run(SourceLauncher.java:138)
+	at jdk.compiler/com.sun.tools.javac.launcher.SourceLauncher.main(SourceLauncher.java:76)
+✅ Test getGreetingTest is successful
+```
+
+Ces tests peuvent aussi être exécutés depuis l'environnement de développement en lançant la méthode `main` de la classe
+de test.
+
+⚠ On ne peut pas lancer un test unitairement : il faut lancer tous les tests à la fois.
 
 ## Autres templates
 
