@@ -27,7 +27,7 @@ arguments de la ligne de commande et en effectuer le parsing.
 * [Installer l'application](#installer-lapplication)
   * [Shell de lancement](#shell-de-lancement)
   * [Lancer l'application installée](#lancer-lapplication-installée)
-* 🆕 [Exécuter les tests](#exécuter-les-tests)
+* [Exécuter les tests](#exécuter-les-tests)
 * [Autres templates](#autres-templates)
 
 ## Créer une application depuis ce template
@@ -162,15 +162,15 @@ java.lang.AssertionError: Test was expected to fail !
 Ces tests peuvent aussi être exécutés depuis l'environnement de développement en lançant la méthode `main` de la classe
 de test.
 
-⚠ On ne peut pas lancer un test seul : il faut lancer tous les tests à la fois.
+⚠️ Actuellement, il n'est pas possible de lancer uniquement un test : il faut lancer tous les tests en même temps.
 
 ## Autres templates
 
 Si vous ne disposez pas de Java 25, vous avez trois possibilités :
 
 - Utiliser les templates [basic-java-23-quickstart](https://github.com/java-cli-apps/basic-java-23-quickstart) ou
-  [basic-java-22-quickstart](https://github.com/java-cli-apps/basic-java-22-quickstart) qui ne
-  nécessitent respectivement que la version 23 ou 22 de Java.
+  [basic-java-22-quickstart](https://github.com/java-cli-apps/basic-java-22-quickstart) qui ne nécessitent
+respectivement que la version 23 ou 22 de Java.
 - Utiliser le template [basic-java-11-quickstart](https://github.com/java-cli-apps/basic-java-11-quickstart)
 qui ne requiert que la version 11 de Java. Il est alors nécessaire que tout le code Java réside dans le même fichier
 comme décrit dans la [JEP 330](https://openjdk.org/jeps/330).
