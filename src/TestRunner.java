@@ -22,7 +22,7 @@ class TestRunner {
             IO.println("✅ Test %s is successful".formatted(testName));
         } catch (InvocationTargetException targetException) {
             IO.println("❌ Test %s has failed".formatted(testName));
-            targetException.getCause().printStackTrace(System.out);
+            targetException.getCause().printStackTrace();
         } catch (IllegalAccessException accessException) {
             throw new RuntimeException("Failed to run test: %s".formatted(testName), accessException);
         }

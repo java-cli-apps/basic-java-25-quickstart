@@ -2,8 +2,6 @@
 
 import dev.nipafx.args.Args;
 
-import static java.lang.IO.println;
-
 void main(String... args) {
     try {
         sayHello(Args.parse(args, ParsedArgs.class));
@@ -17,10 +15,10 @@ void sayHello(ParsedArgs parsedArgs) {
     if (parsedArgs.hasHelpFlag()) {
         printHelp();
     } else {
-        println(parsedArgs.getLanguage().getGreeting());
+        IO.println(parsedArgs.getLanguage().getGreeting());
     }
 }
 
 void printHelp() {
-    println("Usage: Application [--language %s | %s] [--help]".formatted(Language.French, Language.English));
+    IO.println("Usage: Application [--language %s | %s] [--help]".formatted(Language.French, Language.English));
 }

@@ -11,7 +11,7 @@ void fromStringTest() {
 }
 
 void failingTest() {
-    assert false : "Test was expected to fail !";
+    assert false : "Test was expected to fail.";
 }
 
 void getGreetingTest() {
