@@ -2,7 +2,7 @@ import module java.base;
 
 import static java.util.stream.Collectors.joining;
 
-class TestRunner {
+class TestHelper {
 
     static void runTests(Class<?>... classes) {
         for (Class<?> clazz : classes) {

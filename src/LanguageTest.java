@@ -1,7 +1,7 @@
 //usr/bin/env java -enableassertions --class-path ${APP_DIR:-.}/lib/'*' "$0" "$@"; exit $?
 
 void main() {
-    TestRunner.runTests(getClass());
+    TestHelper.runTests(getClass());
 }
 
 void fromStringTest() {

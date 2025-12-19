@@ -1,7 +1,7 @@
 //usr/bin/env java -enableassertions --class-path ${APP_DIR:-.}/lib/'*' "$0" "$@"; exit $?
 
 void main() {
-    TestRunner.runTests(getClass());
+    TestHelper.runTests(getClass());
 }
 
 void sayHelloFrenchTest() {
@@ -20,5 +20,5 @@ void helpFlagTest() {
 }
 
 String runApplication(String... args) {
-    return TestRunner.runApplication("./src/Application.java", args);
+    return TestHelper.runApplication("./src/Application.java", args);
 }

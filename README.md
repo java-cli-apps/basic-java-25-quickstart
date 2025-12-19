@@ -132,8 +132,7 @@ Il ne nous reste plus qu'à :
 
 💡 Avec la JEP 458, il est également possible d'implémenter des tests, que l'on lancera en ligne de commande comme c'est déjà le cas pour l'application.
 
-La classe [LanguageTest](src/LanguageTest.java) qui utilise la classe [TestRunner](src/TestRunner.java) et les
-assertions Java montre comment procéder :
+La classe [LanguageTest](src/LanguageTest.java) qui utilise la classe [TestHelper](src/TestHelper.java) et les assertions Java montre comment procéder :
 
 ```bash
 $ make test
@@ -143,16 +142,16 @@ $ make test
 ./src/LanguageTest.java
 ✅ Test fromStringTest is successful
 ❌ Test failingTest has failed
-java.lang.AssertionError: Test was expected to fail !
-	at LanguageTest.failingTest(LanguageTest.java:13)
+java.lang.AssertionError: Test was expected to fail.
+	at LanguageTest.failingTest(LanguageTest.java:14)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at TestRunner.runTest(TestRunner.java:21)
-	at TestRunner.lambda$runTests$0(TestRunner.java:12)
+	at TestHelper.runTest(TestHelper.java:40)
+	at TestHelper.lambda$runTests$0(TestHelper.java:31)
 	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:803)
-	at TestRunner.runTests(TestRunner.java:12)
-	at TestRunner.runTests(TestRunner.java:6)
+	at TestHelper.runTests(TestHelper.java:31)
+	at TestHelper.runTests(TestHelper.java:9)
 	at LanguageTest.main(LanguageTest.java:4)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
