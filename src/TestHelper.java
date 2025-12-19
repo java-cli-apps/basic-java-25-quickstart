@@ -28,14 +28,12 @@ class TestHelper {
 
     private static void runTests(Object instance) {
         Arrays.stream(instance.getClass().getDeclaredMethods())
+                .filter(method -> method.getName().toLowerCase().contains("test"))
                 .forEach(method -> runTest(instance, method));
     }
 
     private static void runTest(Object instance, Method method) {
         var testName = method.getName();
-        if (!testName.contains("Test")) {
-            return;
-        }
         try {
             method.invoke(instance);
             IO.println("✅ Test %s is successful".formatted(testName));
