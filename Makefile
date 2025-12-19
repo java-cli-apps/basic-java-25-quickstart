@@ -33,6 +33,7 @@ run-installed-app: .check-install-dir ## Lancer l'application installée
 
 test: ## Exécuter les tests
 	./src/LanguageTest.java
+	./src/ApplicationTest.java
 
 .check-install-dir:
 ifndef DEST_DIR

@@ -1,9 +1,28 @@
 import module java.base;
 
+import static java.util.stream.Collectors.joining;
+
 class TestRunner {
+
     static void runTests(Class<?>... classes) {
         for (Class<?> clazz : classes) {
             runTests(getInstance(clazz));
+        }
+    }
+
+    static String runApplication(String name, String... args) {
+        try {
+            var command = new ArrayList<String>();
+            command.add(name);
+            command.addAll(List.of(args));
+            var process = new ProcessBuilder(command).start();
+            try (var reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
+                String output = reader.lines().collect(joining("\n"));
+                process.waitFor();
+                return output;
+            }
+        } catch (Exception exception) {
+            throw new RuntimeException("Application has failed to start", exception);
         }
     }
 
