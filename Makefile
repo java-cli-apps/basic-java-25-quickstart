@@ -1,5 +1,5 @@
 help: ## Afficher l'aide
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' Makefile \
 		| awk 'BEGIN {FS = ":.*?## "}; { printf("\033[36m%-20s\033[0m %s\n", $$1, $$2) }'
 
 package: build ## Construire le livrable de l'application dans un fichier .zip
@@ -11,7 +11,9 @@ install: .check-install-dir ## Installer l'application
 
 build: ## Construire l'application
 	mkdir --parents $(BUILD_APP) \
-		&& cp --update --recursive src lib bin $(BUILD_APP) \
+		&& mkdir -p $(BUILD_APP)/src \
+		&& cp $(PRODUCTION_SOURCES) $(BUILD_APP)/src \
+		&& cp --update --recursive lib bin $(BUILD_APP) \
 		&& cd $(BUILD_APP) \
 		&& mv src/$(STARTER_APP).java src/$(APP_NAME).java \
 		&& mv bin/$(STARTER_APP).sh bin/$(APP_NAME).sh
@@ -47,3 +49,5 @@ APP_DIR := $(APP_NAME)
 BUILD := build
 BUILD_APP := $(BUILD)/$(APP_DIR)
 STARTER_APP := Application
+
+PRODUCTION_SOURCES := $(shell find src -name "*.java" ! -name "*Test*.java")
