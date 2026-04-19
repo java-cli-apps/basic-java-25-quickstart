@@ -15,7 +15,7 @@ void sayHello(ParsedArgs parsedArgs) {
     if (parsedArgs.hasHelpFlag()) {
         printHelp();
     } else {
-        IO.println(parsedArgs.getLanguage().getGreeting());
+        IO.println(parsedArgs.getLanguage().greet());
     }
 }
 

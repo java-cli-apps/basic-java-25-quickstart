@@ -14,7 +14,12 @@ void failingTest() {
     assert false : "Test was expected to fail.";
 }
 
-void getGreetingTest() {
-    String greeting = Language.French.getGreeting();
-    assert greeting.equals("Bonjour 🇫🇷") : "Incorrect greeting returned";
+void frenchGreetTest() {
+    String greet = Language.French.greet();
+    assert greet.equals("Bonjour 🇫🇷") : "Incorrect greet returned";
+}
+
+void englishGreetTest() {
+    String greet = Language.French.greet();
+    assert greet.equals("Hello 🇬🇧") : "Incorrect greet returned";
 }
