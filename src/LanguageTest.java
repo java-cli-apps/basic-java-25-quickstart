@@ -20,6 +20,6 @@ void frenchGreetTest() {
 }
 
 void englishGreetTest() {
-    String greet = Language.French.greet();
+    String greet = Language.English.greet();
     assert greet.equals("Hello 🇬🇧") : "Incorrect greet returned";
 }
