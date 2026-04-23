@@ -4,6 +4,12 @@ import static java.util.stream.Collectors.joining;
 
 class TestHelper {
 
+    static {
+        if (!TestHelper.class.desiredAssertionStatus()) {
+            throw new AssertionError("Please enable assertions: java -enableassertions ...");
+        }
+    }
+
     static void runTests(Class<?>... classes) {
         for (Class<?> clazz : classes) {
             runTests(getInstance(clazz));
