@@ -10,10 +10,6 @@ void fromStringTest() {
     assert optLanguage.get().equals(Language.French) : "Incorrect language returned";
 }
 
-void failingTest() {
-    assert false : "Test was expected to fail.";
-}
-
 void frenchGreetTest() {
     String greet = Language.French.greet();
     assert greet.equals("Bonjour 🇫🇷") : "Incorrect greet returned";
