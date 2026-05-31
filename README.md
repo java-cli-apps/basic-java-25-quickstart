@@ -1,5 +1,7 @@
 # Un template d'Application en Ligne de Commande (CLI) avec Java 25 et les JEP 458, 511 et 512
 
+[![Build](https://github.com/java-cli-apps/basic-java-25-quickstart/actions/workflows/build.yml/badge.svg)](https://github.com/java-cli-apps/basic-java-25-quickstart/actions/workflows/build.yml)
+
 Le template **basic-java-25-quickstart** permet de démarrer une nouvelle application en commande ligne avec Java sans
 utiliser aucun système de build (autre que `make`).
 
